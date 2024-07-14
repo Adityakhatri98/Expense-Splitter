@@ -2,37 +2,457 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-header-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  
+}
+.link{
+  text-decoration: none;
   color: white;
+}
+
+.App-logo {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.navigation {
+  height: 40px;
+  margin-right: 20px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+form {
+  margin: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin: 20px;
+}
+
+input, select {
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}
+
+input {
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}
+
+.navbar {
+  position: relative;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #282c34;
+    width: 200px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+
+/* Form Styles */
+form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+form input, form select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.dashboard-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.dashboard-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-container ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.dashboard-container ul li.owe {
+  background-color: #ffe6e6;
+  border-color: #ffcccc;
+}
+
+.dashboard-container ul li.owed {
+  background-color: #e6ffe6;
+  border-color: #ccffcc;
+}
+
+/* Friend List Styles */
+.friendlist-container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.friendlist-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.friendlist-container form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.friendlist-container input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.friendlist-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.friendlist-container button:hover {
+  background-color: #45a049;
+}
+
+.friendlist-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friendlist-container ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+}
+
+.friendlist-container ul li input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.friendlist-container ul li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.friendlist-container ul li button.edit {
+  background-color: #008CBA;
+}
+
+.friendlist-container ul li button.edit:hover {
+  background-color: #007B9A;
+}
+
+.friendlist-container ul li button.save {
+  background-color: #4CAF50;
+}
+
+.friendlist-container ul li button.save:hover {
+  background-color: #45a049;
+}
+
+/* Expense List Styles */
+.expense-list-container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.expense-list-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.expense-list-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-list-container ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expense-list-container ul li input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.expense-list-container ul li .description {
+  font-weight: bold;
+  flex: 2;
+}
+
+.expense-list-container ul li .amount {
+  color: #4CAF50;
+  font-size: 16px;
+  flex: 1;
+  text-align: right;
+}
+
+.expense-list-container ul li .friend {
+  font-size: 14px;
+  color: #666;
+  flex: 1;
+  text-align: right;
+}
+
+.expense-list-container ul li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.expense-list-container ul li button.edit {
+  background-color: #008CBA;
+}
+
+.expense-list-container ul li button.edit:hover {
+  background-color: #007B9A;
+}
+
+.expense-list-container ul li button.save {
+  background-color: #4CAF50;
+}
+
+.expense-list-container ul li button.save:hover {
+  background-color: #45a049;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  form, .dashboard-container, .friendlist-container, .expense-list-container {
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+  }
+
+  form input, form select, .friendlist-container input, .expense-list-container input {
+    width: calc(100% - 10px);
+  }
+
+  .friendlist-container form {
+    flex-direction: column;
+  }
+
+  .friendlist-container input, .friendlist-container button {
+    margin: 5px 0;
+  }
+
+  .expense-list-container ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .expense-list-container ul li .description, .expense-list-container ul li .amount, .expense-list-container ul li .friend {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  form h2, .dashboard-container h2, .friendlist-container h2, .expense-list-container h2 {
+    font-size: 20px;
+  }
+
+  form input, form select, .friendlist-container input, .expense-list-container input {
+    font-size: 14px;
+  }
+
+  form button, .friendlist-container button, .expense-list-container button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .dashboard-container ul li, .friendlist-container ul li, .expense-list-container ul li {
+    padding: 8px;
   }
 }
