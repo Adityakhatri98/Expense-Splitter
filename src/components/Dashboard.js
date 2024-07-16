@@ -6,7 +6,7 @@ function Dashboard() {
   const [balances, setBalances] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/balances/')
+    axios.get('http://18.144.44.28:8000/api/balances/')
       .then(response => setBalances(response.data))
       .catch(error => console.error('Error fetching balances:', error));
   }, []);

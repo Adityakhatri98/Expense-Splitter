@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
   const [friends, setFriends] = useState([]);
@@ -16,13 +15,13 @@ function ExpenseList() {
   }, []);
 
   const fetchExpenses = () => {
-    axios.get('http://localhost:8000/api/expenses/')
+    axios.get('http://18.144.44.28:8000/api/expenses/')
       .then(response => setExpenses(response.data))
       .catch(error => console.error('Error fetching expenses:', error));
   };
 
   const fetchFriends = () => {
-    axios.get('http://localhost:8000/api/friends/')
+    axios.get('http://18.144.44.28:8000/api/friends/')
       .then(response => setFriends(response.data))
       .catch(error => console.error('Error fetching friends:', error));
   };
@@ -35,7 +34,7 @@ function ExpenseList() {
   };
 
   const handleSave = (expenseId) => {
-    axios.put(`http://localhost:8000/api/expenses/${expenseId}/`, {
+    axios.put(`http://18.144.44.28:8000/api/expenses/${expenseId}/`, {
       description: editDescription,
       amount: editAmount,
       friend: editFriend
@@ -49,6 +48,15 @@ function ExpenseList() {
         fetchExpenses();
       })
       .catch(error => console.error('Error updating expense:', error));
+  };
+
+  const handleDelete = (expenseId) => {
+    axios.delete(`http://18.144.44.28:8000/api/expenses/${expenseId}/`)
+      .then(response => {
+        console.log('Expense deleted:', response.data);
+        fetchExpenses();
+      })
+      .catch(error => console.error('Error deleting expense:', error));
   };
 
   return (
@@ -83,6 +91,12 @@ function ExpenseList() {
                 <span className="amount">${expense.amount}</span>
                 <span className="friend">Shared with: {expense.friend_name}</span>
                 <button onClick={() => handleEdit(expense)}>Edit</button>
+                <button
+                  onClick={() => handleDelete(expense.id)}
+                  style={{ color: 'white', backgroundColor: 'red', border: 'none', padding: '5px 10px', cursor: 'pointer', marginLeft: '10px' }}
+                >
+                  Delete
+                </button>
               </>
             )}
           </li>

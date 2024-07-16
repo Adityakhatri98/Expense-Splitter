@@ -10,14 +10,14 @@ function AddExpenseForm() {
 
   // Fetch friends list when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:8000/api/friends/')
+    axios.get('http://18.144.44.28:8000/api/friends/')
       .then(response => setFriends(response.data))
       .catch(error => console.error('Error fetching friends:', error));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8000/api/expenses/', { description, amount, friend })
+    axios.post('http://18.144.44.28:8000/api/expenses/', { description, amount, friend })
       .then(response => {
         console.log('Expense added:', response.data);
         setDescription('');

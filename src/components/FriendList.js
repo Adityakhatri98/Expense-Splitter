@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 function FriendList() {
   const [friends, setFriends] = useState([]);
   const [name, setName] = useState('');
@@ -13,14 +12,14 @@ function FriendList() {
   }, []);
 
   const fetchFriends = () => {
-    axios.get('http://localhost:8000/api/friends/')
+    axios.get('http://18.144.44.28:8000/api/friends/')
       .then(response => setFriends(response.data))
       .catch(error => console.error('Error fetching friends:', error));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8000/api/friends/', { name })
+    axios.post('http://18.144.44.28:8000/api/friends/', { name })
       .then(response => {
         console.log('Friend added:', response.data);
         setName('');
@@ -35,7 +34,7 @@ function FriendList() {
   };
 
   const handleSave = (friendId) => {
-    axios.put(`http://localhost:8000/api/friends/${friendId}/`, { name: editName })
+    axios.put(`http://18.144.44.28:8000/api/friends/${friendId}/`, { name: editName })
       .then(response => {
         console.log('Friend updated:', response.data);
         setEditFriendId(null);
@@ -43,6 +42,15 @@ function FriendList() {
         fetchFriends(); // Refresh the friends list
       })
       .catch(error => console.error('Error updating friend:', error));
+  };
+
+  const handleDelete = (friendId) => {
+    axios.delete(`http://18.144.44.28:8000/api/friends/${friendId}/`)
+      .then(response => {
+        console.log('Friend deleted:', response.data);
+        fetchFriends(); // Refresh the friends list
+      })
+      .catch(error => console.error('Error deleting friend:', error));
   };
 
   return (
@@ -73,6 +81,13 @@ function FriendList() {
               <>
                 {friend.name}
                 <button onClick={() => handleEdit(friend)}>Edit</button>
+                <button 
+                  onClick={() => handleDelete(friend.id)} 
+                  style={{ color: 'white', backgroundColor: 'red', border: 'none', padding: '5px 10px', cursor: 'pointer', marginLeft: '10px' }}
+                >
+                  Delete
+                </button>
+                
               </>
             )}
           </li>
